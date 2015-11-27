@@ -95,5 +95,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('default', ['less', 'concat', 'copy', 'watch']);
+  grunt.registerTask('default', ['less', 'concat', 'copy']);
 };
