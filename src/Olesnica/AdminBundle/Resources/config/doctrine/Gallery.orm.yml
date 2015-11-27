@@ -1,0 +1,20 @@
+Olesnica\AdminBundle\Entity\Gallery:
+    type: entity
+    table: null
+    repositoryClass: Olesnica\AdminBundle\Entity\GalleryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+    oneToOne:
+        event:
+            targetEntity: Event
+            inversedBy: gallery
+    oneToMany:
+        pictures:
+            targetEntity: Picture
+            mappedBy: gallery
+    lifecycleCallbacks: {  }

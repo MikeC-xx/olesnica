@@ -1,0 +1,40 @@
+.jizda-kralu {
+  background-image: url('@{base-path}/images/jizda-kralu.jpg');
+}
+
+.masopust {
+  background-image: url('@{base-path}/images/masopust.jpg');
+}
+
+.soubor {
+  background-image: url('@{base-path}/images/soubor.jpg');
+}
+
+.soubor, .jizda-kralu, .masopust {
+  height: @carousel-xs-height;
+  background-size: cover;
+  background-position: center;
+}
+
+.owl-theme .owl-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  border: 1px #555 solid;
+}
+
+@media (min-width: @screen-sm-min) {
+  .soubor, .jizda-kralu, .masopust {
+    height: @carousel-sm-height;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  .soubor, .jizda-kralu, .masopust {
+    height: @carousel-md-height;
+  }
+}

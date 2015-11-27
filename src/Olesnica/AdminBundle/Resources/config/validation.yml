@@ -1,0 +1,33 @@
+Olesnica\AdminBundle\Entity\Event:
+    constraints:
+        - Olesnica\AdminBundle\Validator\Constraints\CheckFinishDateTime: ~
+    properties:
+        title:
+            - NotBlank: ~
+        startDate:
+            - NotNull: ~
+        location:
+            - NotBlank: ~
+        shortDescription:
+            - NotBlank: ~
+
+Olesnica\AdminBundle\Entity\Attachment:
+    properties:
+        title:
+            - NotBlank: ~
+        path:
+            - NotBlank: ~
+        event:
+            - NotNull: ~
+
+Olesnica\AdminBundle\Entity\Gallery:
+      properties:
+          event:
+              - NotNull: ~
+
+Olesnica\AdminBundle\Entity\Picture:
+      properties:
+          file:
+              - NotBlank: ~
+          gallery_id:
+              - NotNull: ~

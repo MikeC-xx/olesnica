@@ -1,0 +1,26 @@
+Olesnica\AdminBundle\Entity\Picture:
+    type: entity
+    table: null
+    repositoryClass: Olesnica\AdminBundle\Entity\PictureRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        exifDatetime:
+            type: datetime
+            nullable: true
+        file:
+            type: string
+            length: 255
+            nullable: false
+    manyToOne:
+        gallery:
+            targetEntity: Gallery
+            inversedBy: pictures
+            joinColumn:
+                name: gallery_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

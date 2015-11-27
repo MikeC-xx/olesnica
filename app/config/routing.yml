@@ -1,0 +1,11 @@
+olesnica_web:
+    resource: "@OlesnicaWebBundle/Resources/config/routing.yml"
+    prefix:   /
+
+olesnica_admin:
+    resource: "@OlesnicaAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin/
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:   /admin/

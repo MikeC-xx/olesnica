@@ -1,0 +1,54 @@
+{% extends 'web_base.html.twig' %}
+
+{% block content %}
+
+<div class="col-md-8 col-sm-8">
+  <article>
+    <h1>Programy vystoupení</h1>
+    <ul>
+      <li>Hanácké bál</li>
+      <li>Pochovávání basy</li>
+      <li>Vodění medvěda</li>
+      <li>Jízda králů</li>
+    </ul>
+
+    <h2>Tématická pásma</h2>
+    <ul>
+      <li>Hody – stínání berana</li>
+      <li>Sekáči – Odvedenecká</li>
+      <li>Šla rajda</li>
+      <li>Masopust – Pochovávání basy</li>
+      <li>Hanačka bochte v kléně nese</li>
+      <li>Prší prší</li>
+    </ul>
+
+    <h2>Jednotlivé tance</h2>
+    <ul>
+      <li>Polonéza trojky</li>
+      <li>Varšavěnka</li>
+      <li>Rajdák</li>
+      <li>Huláň</li>
+      <li>Alexandr - kluci</li>
+      <li>Hopaj šupaj - miliřník</li>
+      <li>Doloplazích je pěkné dům - Nes mě koničku nes</li>
+      <li>Doudlebská polka</li>
+      <li>Taneční hry - košíková, šátečková, metlová</li>
+    </ul>
+
+    <h2>Samostatné vystoupení hanácké muziky Jana Malíčka</h2>
+  </article>
+</div>
+<hr class="visible-xs-block">
+{% endblock %}
+
+{% block sidebar %}
+
+<div class="col-md-4 col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">Poslední vystoupení</div>
+    <div class="panel-body">
+      {% include 'OlesnicaWebBundle:_partials:list_of_events.html.twig' with {events: recentPerformances} %}
+    </div>
+  </div>
+</div>
+{% endblock %}

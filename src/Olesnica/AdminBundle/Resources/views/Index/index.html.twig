@@ -1,0 +1,11 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Vítejte v administraci{% endblock %}
+
+{% block content %}
+<h3>Dostupné moduly pro správu</h3>
+<ul>
+  <li><a href="{{ path('olesnica_admin_events') }}">Akce</a> <small>vystoupení, plesy, jiné události</small></li>
+  <li><a href="{{ path('olesnica_admin_gallery') }}">Galerie</a> <small>fotky z akcí</small></li>
+</ul>
+{% endblock %}

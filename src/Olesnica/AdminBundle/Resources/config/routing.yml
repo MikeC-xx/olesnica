@@ -1,0 +1,23 @@
+olesnica_admin_homepage:
+    path:     /
+    defaults: { _controller: OlesnicaAdminBundle:Index:index }
+
+olesnica_admin_events:
+    path:     /akce
+    defaults: { _controller: OlesnicaAdminBundle:Event:index }
+
+olesnica_admin_events_new:
+    path: /akce/nova-akce
+    defaults: { _controller: OlesnicaAdminBundle:Event:edit, event: null }
+
+olesnica_admin_events_edit:
+    path: /akce/{id}
+    defaults: { _controller: OlesnicaAdminBundle:Event:edit }
+
+olesnica_admin_events_delete:
+    path: /akce/{id}/smazat
+    defaults: { _controller: OlesnicaAdminBundle:Event:delete }
+
+olesnica_admin_gallery:
+    path:     /galerie
+    defaults: { _controller: OlesnicaAdminBundle:Gallery:index }

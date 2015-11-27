@@ -1,0 +1,24 @@
+// Attachment
+
+
+.attachment {
+    .btn-delete, .btn-cancel {
+        float: right;
+
+        @media (min-width: @screen-sm) {
+            float: none;
+            display: inline-block;
+            margin-top: 0.5em;
+        }
+    }
+
+    &--deleted {
+      
+        .attachment {
+
+            &-icon, &-filename, &-title {
+                opacity: 0.4;
+            }
+        }
+    }
+}

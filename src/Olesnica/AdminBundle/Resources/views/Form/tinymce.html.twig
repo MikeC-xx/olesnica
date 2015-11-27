@@ -1,0 +1,59 @@
+<script type="text/javascript" src="{{ asset('assets/js/tinymce/tinymce.min.js') }}"></script>
+<script type="text/javascript">
+  tinymce.init({
+    selector: 'textarea.wysiwyg',
+    language: 'cs',
+    content_css : ['{{ asset('assets/css/olesnica_web.css') }}'],
+    plugins: 'advlist autolink lists link charmap hr searchreplace paste',
+    toolbar: 'undo redo | styleselect | bold italic underline strikethrough removeformat | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr charmap link | searchreplace',
+    height: '200px',
+    menubar: false,
+    resize: true,
+    style_formats: [
+      {
+        title: 'Headers',
+        items: [
+          {
+            title: 'Header 1',
+            format: 'h2'
+          },
+          {
+            title: 'Header 2',
+            format: 'h3'
+          },
+          {
+            title: 'Header 3',
+            format: 'h4'
+          }
+        ]
+      },
+      {
+        title: 'Inline',
+        items: [
+          {
+            title: 'Header 1',
+            inline: 'span',
+            classes: 'h2'
+          },
+          {
+            title: 'Header 2',
+            inline: 'span',
+            classes: 'h3'
+          },
+          {
+            title: 'Header 3',
+            inline: 'span',
+            classes: 'h4'
+          }
+        ]
+      }
+    ],
+    init_instance_callback: function(editor) {
+      $(editor.contentDocument.body).css({
+        'position': 'absolute',
+        'top': '0',
+        'padding': '1em'
+      });
+    }
+ });
+</script>

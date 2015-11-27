@@ -1,0 +1,11 @@
+services:
+    # Form row attributes form extension
+    olesnica_admin.form_type_extension:
+        class: Olesnica\AdminBundle\Form\Extension\FormTypeExtension
+        tags:
+            -  { name: form.type_extension, alias: form }
+
+    my.listener:
+        class: Olesnica\AdminBundle\Entity\EventListener\SlugResetter
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }

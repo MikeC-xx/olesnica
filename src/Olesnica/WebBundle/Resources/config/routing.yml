@@ -1,0 +1,41 @@
+olesnica_web_homepage:
+    path:     /
+    defaults: { _controller: OlesnicaWebBundle:Homepage:index }
+
+olesnica_web_about:
+    path:     /o-souboru
+    defaults: { _controller: OlesnicaWebBundle:About:index }
+
+olesnica_web_repertoire:
+    path:     /repertoar
+    defaults: { _controller: OlesnicaWebBundle:Repertoire:index }
+
+olesnica_web_ride_of_kings:
+    path:     /jizda-kralu
+    defaults: { _controller: OlesnicaWebBundle:RideOfKings:index }
+
+olesnica_web_music:
+    path:     /hudba
+    defaults: { _controller: OlesnicaWebBundle:Music:index }
+
+olesnica_web_events:
+    path:     /akce
+    defaults: { _controller: OlesnicaWebBundle:Event:index }
+
+olesnica_web_events_show_id:
+    path: /akce/{id}
+    requirements:
+        id: \d+
+    defaults: { _controller: OlesnicaWebBundle:Event:show }
+
+olesnica_web_events_show_slug:
+    path: /akce/{slug}
+    defaults: { _controller: OlesnicaWebBundle:Event:show }
+
+olesnica_web_gallery:
+    path:     /galerie
+    defaults: { _controller: OlesnicaWebBundle:Gallery:index }
+
+olesnica_web_contact:
+    path:     /kontakt
+    defaults: { _controller: OlesnicaWebBundle:Contact:index }

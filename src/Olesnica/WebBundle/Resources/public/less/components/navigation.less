@@ -1,0 +1,98 @@
+// Default Navbar
+.navbar-default {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px @navbar-border-color solid;
+}
+
+// Navbar
+.navbar {
+  z-index: 100;
+  height: @navbar-height;
+
+  .container {
+    background-color: white;
+  }
+
+  .nav > li {
+    a {
+      color: @brand-color;
+      font-weight: bold;
+    }
+
+    a:hover,
+    a:focus {
+      color: @brand-dark-color;
+    }
+  }
+
+  .nav > li.active {
+    a,
+    a:hover,
+    a:focus {
+      color: white;
+      background-color: @brand-color;
+      box-shadow: 0px 0px 3px rgba(0,0,0,0.5) inset;
+    }
+  }
+}
+
+// Navbar brand
+.navbar-brand {
+  padding-top: 8px;
+
+  img {
+    display: inline-block;
+  }
+
+  .hanacka {
+    height: 35px;
+    margin-right: @grid-gutter-half-width;
+  }
+
+  .olesnica-doloplazy {
+    height: 25px;
+  }
+}
+
+// Media queries
+@media (min-width: @screen-sm-min) {
+  .navbar {
+    position: static;
+    height: auto;
+
+    .container {
+      background-color: @navbar-default-bg;
+    }
+
+    .navbar-nav {
+      margin: 0 auto;
+      display: table;
+      table-layout: auto;
+      float: none;
+      width: 100%;
+    }
+
+    .navbar-nav > li {
+      display: table-cell;
+      float: none;
+      text-align: center;
+    }
+
+    .navbar-nav > li:first-child {
+      border-left: 1px @navbar-border-color solid;
+    }
+
+    .navbar-nav > li {
+      border-right: 1px @navbar-border-color solid;
+    }
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  .navbar {
+    .container {
+      max-width: @content-max-width;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{% extends 'web_base.html.twig' %}
+
+{% block content %}
+<div class="col-sm-12">
+  <article>
+    <h1>{{ event.title }}</h1>
+    <p class="lead"><strong>{{ event.getDuration }}</strong></p>
+    <p class="lead offset-bottom-small">
+      {{ event.shortDescription}}
+    </p>
+    {% if event.longDescription is not null %}
+    <p class="offset-bottom-small">
+      {{ event.longDescription|raw }}
+    </p>
+    {% endif %}
+    <h2 class="h1">Místo</h2>
+    <p class="lead">
+      {{ event.location }}<br />
+      {% set zoom = 15 %}
+      {% set mapWidth = 500 %}
+      {% set mapHeight = 300 %}
+      {% set mapUrl = 'http://maps.google.com/maps?q=' ~ event.latitude ~ ',' ~ event.longitude ~ '&hl=cs&ie=utf8&z=' ~ zoom %}
+      {% set imgUrl = 'http://maps.googleapis.com/maps/api/staticmap?center=' ~ event.latitude ~ ',' ~ event.longitude ~ '&zoom=' ~ zoom ~ '&size=' ~ mapWidth ~ 'x' ~ mapHeight ~ '&sensor=false&markers=' ~ event.latitude ~ ',' ~ event.longitude %}
+    </p>
+    <a href="{{ mapUrl }}" class="offset-bottom-small" style="display: inline-block;" target="_blank" title="Zobrazit mapu (otevře se v novém okně)" data-toggle="tooltip">
+      <img src="{{ imgUrl }}" alt="Mapa: {{ event.location }}" width="{{ mapWidth }}" height="{{ mapHeight }}" class="img-responsive" style="display: inline-block;">
+    </a>
+    <h2 class="h1">Přílohy</h2>
+    <a href="#" class="attachment-link">
+      <div class="attachment">
+        <div class="attachment-icon attachment-docx"></div>
+        <div class="attachment-filename hidden-xs"><small>detaily-k-akci-1.docx</small></div>
+        <div class="attachment-title">Detaily k akci</div>
+      </div>
+    </a>
+    <a href="#" class="attachment-link">
+      <div class="attachment">
+        <div class="attachment-icon attachment-pdf"></div>
+        <div class="attachment-filename hidden-xs"><small>plakat-slavnosti-prostejov-2.pdf</small></div>
+        <div class="attachment-title">Plakát: slavnosti Prostějov</div>
+      </div>
+    </a>
+  </article>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Olešnica Doloplazy{% endblock %}</title>
+
+    <link rel="shortcut icon" href="{{ asset('assets/images/hanacka.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/hanacka.png') }}" />
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/hanacka.png') }}" />
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_web.css') }}" media="all">
+    {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.theme.default.css') }}">
+    {% endblock %}
+  </head>
+  <body>
+      <header>
+        <div class="header-banner container center-block hidden-xs">
+          <img src="{{ asset('assets/images/hanacka.svg') }}" class="hanacka" alt="Hanačka">
+          <img src="{{ asset('assets/images/olesnica-doloplazy.svg') }}" class="olesnica-doloplazy" alt="Olešnica Doloplazy">
+        </div>
+        <div class="owl-carousel" id="carousel">
+          <div class="jizda-kralu"></div>
+          <div class="masopust"></div>
+          <div class="soubor"></div>
+        </div>
+        <nav class="navbar navbar-fixed-top navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand visible-xs">
+                <img src="{{ asset('assets/images/hanacka.svg') }}" class="hanacka" alt="Hanačka">
+                <img src="{{ asset('assets/images/olesnica-doloplazy.svg') }}" class="olesnica-doloplazy" alt="Olešnica Doloplazy">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="main-navigation">
+              <ul class="nav navbar-nav">
+                <li{{ (app.request.get('_route') == 'olesnica_web_homepage') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_homepage') }}">Úvod</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_about') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_about') }}">O souboru</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_repertoire') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_repertoire') }}">Repertoár</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_ride_of_kings') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_ride_of_kings') }}">Jízda králů</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_music') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_music') }}">Hudba</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_events') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_events') }}">Akce</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_gallery') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_gallery') }}">Galerie</a>
+                </li>
+                <li{{ (app.request.get('_route') == 'olesnica_web_contact') ? ' class="active"' }}>
+                  <a href="{{ path('olesnica_web_contact') }}">Kontakty</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="container wrapper">
+          {% block content %}{% endblock %}
+          {% block sidebar %}{% endblock %}
+        </div>
+        <hr />
+      </main>
+      <footer>
+        <div class="container">
+          <div class="col-md-4 col-sm-4">
+
+          </div>
+          <div class="col-md-4 col-sm-4">
+
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <h2>Kontaktujte nás</h2>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" placeholder="Váš email" id="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message">Zpráva</label>
+              <textarea rows="4" id="message" placeholder="Vaše zpráva" class="form-control"></textarea>
+            </div>
+            <input type="submit" class="btn btn-default pull-right" value="Odeslat">
+          </div>
+        </div>
+        <div class="copyright text-center">
+          Copyright © 2015 &bull; <a href="http://cenker.praslavice.net/mikec" target="_blank">Mikec® Webdesign</a> &bull; <a href="{{ path('olesnica_admin_homepage') }}">Admin</a>
+        </div>
+      </footer>
+      {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('assets/js/olesnica_web.js') }}"></script>
+      {% endblock %}
+    </div>
+  </body>
+</html>

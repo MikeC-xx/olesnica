@@ -1,0 +1,31 @@
+Olesnica\AdminBundle\Entity\Attachment:
+    type: entity
+    table: null
+    repositoryClass: Olesnica\AdminBundle\Entity\AttachmentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 40
+            nullable: false
+        path:
+            type: string
+            length: 255
+            nullable: false
+    manyToOne:
+        event:
+            targetEntity: Event
+            inversedBy: attachments
+            joinColumn:
+                name: event_id
+                referencedColumnName: id
+                nullable: false
+    lifecycleCallbacks:
+        prePersist: [ preUpload ]
+        preRemove: [ removeUpload ]
+        postPersist: [ upload ]

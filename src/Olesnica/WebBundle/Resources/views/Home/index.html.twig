@@ -1,0 +1,51 @@
+{% extends 'web_base.html.twig' %}
+
+{% block content %}
+<div class="col-md-8 col-sm-8">
+  <article>
+    <h1>Vítejte na stránkách hanáckého národopisného souboru Olešnica Doloplazy</h1>
+    <p class="lead">
+      udržujeme tradice a zvyky na Hané už více než 50 let<br>
+      blabla<br>
+      blabla<br>
+      bla<br>
+    </p>
+    <div class="pull-right">
+      <a class="btn btn-success btn-xs" href="{{ path('olesnica_web_about') }}">více</a>
+    </div>
+  </article>
+
+  <article>
+    <h1>Vystoupení</h1>
+    <p class="lead">
+      nabízíme 10 minutové až 2 hodinové živé vstupy s hudbou na kulturních akcích
+    </p>
+    <div class="pull-right">
+      <a class="btn btn-success btn-xs" href="{{ path('olesnica_web_repertoire') }}">více</a>
+    </div>
+  </article>
+
+  <article>
+    <h1>Jízda králů</h1>
+    <p class="lead">
+      Každoročně pořádáme jedinou hanáckou Jízdu králů v České republice
+    </p>
+    <div class="pull-right">
+      <a class="btn btn-success btn-xs" href="{{ path('olesnica_web_ride_of_kings') }}">více</a>
+    </div>
+  </article>
+</div>
+<hr class="visible-xs-block">
+{% endblock %}
+
+{% block sidebar %}
+
+<div class="col-md-4 col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">Nejbližší akce</div>
+    <div class="panel-body">
+      {% include 'OlesnicaWebBundle:_partials:list_of_events.html.twig' with {events: recentEvents} %}
+    </div>
+  </div>
+</div>
+{% endblock %}

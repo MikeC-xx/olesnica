@@ -1,0 +1,18 @@
+{% block form_row -%}
+{% spaceless %}
+    <div {{ block('form_row_attributes') }}>
+        {{ form_label(form) }}
+        <div class="{{ block('form_group_class') }}">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endspaceless %}
+{%- endblock form_row %}
+
+{% block form_row_attributes %}
+    {% set row_attr = row_attr|merge({'class': 'form-group' ~ (row_attr.class is defined ? ' ' ~ row_attr.class : '') ~ ((not compound or force_error|default(false)) and not valid ? ' has-error' : '')} ) %}
+    {% spaceless %}
+        {% for attrname, attrvalue in row_attr %}{{ attrname }}="{{ attrvalue }}" {% endfor %}
+    {% endspaceless %}
+{% endblock form_row_attributes %}

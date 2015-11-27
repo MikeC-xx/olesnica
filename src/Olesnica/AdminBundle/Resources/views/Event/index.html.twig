@@ -1,0 +1,65 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}
+Akce
+{% endblock %}
+
+{% block actions %}
+<a class="btn btn-success btn-xs" href="{{ path('olesnica_admin_events_new') }}">Přidat akci</a>
+{% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+  <caption>
+    <h3>Nadcházející akce</h3>
+  </caption>
+  <thead>
+    <tr>
+      <th>Název</th>
+      <th>Datum</th>
+      <th>URL</th>
+      <th></th>
+    <tr>
+  </thead>
+  <tbody>
+    {% for event in events %}
+    <tr>
+      <td>{{ event.title }}</td>
+      <td>{{ event.startDate|date('d. m. Y') }}</td>
+        <td>{{ event.slug }}</td>
+      <td>
+        <a href="{{ path('olesnica_admin_events_edit', { 'id': event.id }) }}" class="btn btn-xs btn-default">Upravit</a>
+        <a href="#" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-modal" data-href="{{ path('olesnica_admin_events_delete', { 'id': event.id }) }}">Smazat</a>
+      </td>
+    <tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="Potvrdit smazání záznamu">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Opravdu si přejete smazat záznam?</h4>
+      </div>
+      <div class="modal-body">
+        Tuto akci nelze vrátit zpět.
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-default" data-dismiss="modal">Zrušit</a>
+        <a href="#" id="confirm-action" class="btn btn-danger">Smazat</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#delete-modal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var href = button.data('href');
+    var modal = $(this);
+    modal.find('#confirm-action').attr('href', href);
+  });
+</script>
+{% endblock %}

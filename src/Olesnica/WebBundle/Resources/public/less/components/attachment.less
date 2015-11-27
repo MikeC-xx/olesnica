@@ -1,0 +1,143 @@
+// Attachment
+
+@attachment-icon-size-xs: 24px;
+@attachment-icon-size-sm: 64px;
+@attachment-icon-size-md: 128px;
+
+.attachment-icon-bg(@file) {
+    background-image: url('@{base-path}/images/icons/icon-@{file}-xs.png');
+
+    @media (min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 1.5) {
+        background-image: url('@{base-path}/images/icons/icon-@{file}-xs@2x.png');
+    }
+
+    @media (min-width: @screen-sm-min) {
+        background-image: url('@{base-path}/images/icons/icon-@{file}-sm.png');
+    }
+
+    @media (min-width: @screen-sm-min) and (min-resolution: 144dpi),
+    (min-width: @screen-sm-min) and (-webkit-min-device-pixel-ratio: 1.5) {
+        background-image: url('@{base-path}/images/icons/icon-@{file}-sm@2x.png');
+    }
+    /*
+    @media (min-width: @screen-md-min) {
+        background-image: url('@{base-path}/images/icons/icon-@{file}-md.png');
+    }
+
+    @media (min-width: @screen-md-min) and (min-resolution: 144dpi),
+    (min-width: @screen-md-min) and (-webkit-min-device-pixel-ratio: 1.5) {
+        background-image: url('@{base-path}/images/icons/icon-@{file}-md@2x.png');
+    }
+    */
+}
+
+.attachment {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    @media (min-width: @screen-sm-min) {
+        display: inline-block;
+        vertical-align: top;
+        min-width: 3 * @attachment-icon-size-sm;
+        padding: 1em;
+        text-align: center;
+        border: 1px transparent solid;
+
+        &:hover {
+            border: 1px @gray-lighter solid;
+        }
+
+        &-title {
+            display: block;
+        }
+    }
+    /*
+    @media (min-width: @screen-md-min) {
+        min-width: 2 * @attachment-icon-size-md;
+    }
+    */
+
+    &-link:hover {
+        text-decoration: none;
+    }
+
+    &-filename {
+
+        @media (min-width: @screen-sm-min) {
+            color: @headings-small-color;
+        }
+    }
+
+    &-title {
+        display: inline-block;
+
+        @media (min-width: @screen-sm-min) {
+            color: @gray-dark;
+        }
+    }
+
+    &-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        width: @attachment-icon-size-xs;
+        height: @attachment-icon-size-xs;
+
+        @media (min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 1.5) {
+            background-size: @attachment-icon-size-xs;
+        }
+
+        @media (min-width: @screen-sm-min) {
+            width: @attachment-icon-size-sm;
+            height: @attachment-icon-size-sm;
+            background-size: @attachment-icon-size-sm;
+        }
+        /*
+        @media (min-width: @screen-md-min) {
+            width: @attachment-icon-size-md;
+            height: @attachment-icon-size-md;
+            background-size: @attachment-icon-size-md;
+        }
+        */
+    }
+
+    &-docx {
+        .attachment-icon-bg('docx');
+    }
+
+    &-jpeg {
+        .attachment-icon-bg('jpeg');
+    }
+
+    &-mp3 {
+        .attachment-icon-bg('mp3');
+    }
+
+    &-mpeg4 {
+        .attachment-icon-bg('mpeg4');
+    }
+
+    &-pdf {
+        .attachment-icon-bg('pdf');
+    }
+
+    &-png {
+        .attachment-icon-bg('png');
+    }
+
+    &-pptx {
+        .attachment-icon-bg('pptx');
+    }
+
+    &-rtf {
+        .attachment-icon-bg('rtf');
+    }
+
+    &-txt {
+        .attachment-icon-bg('txt');
+    }
+
+    &-xlsx {
+        .attachment-icon-bg('xlsx');
+    }
+}

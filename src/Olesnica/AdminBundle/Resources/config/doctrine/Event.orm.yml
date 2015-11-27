@@ -1,0 +1,58 @@
+Olesnica\AdminBundle\Entity\Event:
+    type: entity
+    table: null
+    repositoryClass: Olesnica\AdminBundle\Entity\EventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: false
+        performance:
+            type: boolean
+        startDate:
+            type: date
+            nullable: false
+        startTime:
+            type: time
+            nullable: true
+        finishDate:
+            type: date
+            nullable: true
+        finishTime:
+            type: time
+            nullable: true
+        location:
+            type: string
+            nullable: false
+        latitude:
+            type: float
+            nullable: false
+        longitude:
+            type: float
+            nullable: false
+        shortDescription:
+            type: string
+            length: 255
+            nullable: false
+        longDescription:
+            type: string
+            length: 65536
+            nullable: true
+    oneToMany:
+        attachments:
+            targetEntity: Attachment
+            nullable: false
+            orphanRemoval: true
+            mappedBy: event
+            cascade: ['all']
+    oneToOne:
+        gallery:
+            targetEntity: Gallery
+            mappedBy: event
+    lifecycleCallbacks: {  }

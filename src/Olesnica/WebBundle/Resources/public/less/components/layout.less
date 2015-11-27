@@ -1,0 +1,191 @@
+// Global
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  .wrapper {
+    padding: 0;
+  }
+}
+
+// Header
+header {
+  padding-top: @navbar-height;
+  .offset-bottom();
+}
+
+// Main
+main {
+  .offset-top();
+  .offset-bottom();
+}
+
+// Footer
+footer {
+  .padding-top();
+  background-color: @footer-background-color;
+  border-top: 1px @footer-border-color solid;
+
+  .container {
+    .padding-bottom();
+  }
+
+  .copyright {
+    color: @copyright-color;
+    background-color: @copyright-background-color;
+    border-top: 1px @copyright-border-color solid;
+    letter-spacing:0.1em;
+    font-size: 10px;
+    padding: 3px;
+  }
+}
+
+article {
+  overflow: auto;
+  .offset-bottom();
+  .padding-bottom();
+  border-bottom: 1px @navbar-border-color solid;
+}
+
+hr {
+  border: 0;
+  margin: 0;
+  .offset-bottom();
+  height: 20px;
+  background-image: url('@{base-path}/images/vetevka.png');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+hr.small {
+  height: 15px;
+}
+
+// Remove top margin on first h1 and after hr
+hr + article > div > h1:first-child,
+main > div:first-child > article:first-child > div > h1:first-child,
+main > div:first-child > div:first-child > article:first-child > h1:first-child {
+  margin-top: 0;
+}
+
+// Picture Box
+.picture-box {
+  margin-top: 0.5em;
+  position: relative;
+  border: 1px @gray solid;
+
+  .picture-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    font-style: italic;
+    color: white;
+    padding: 0.5em 1em;
+    font-size: 12px;
+  }
+}
+
+// Media queries
+@media (min-width: @screen-sm-min) {
+  // Global
+  html, body {
+  }
+
+  // Header
+  header {
+    padding-top: 0;
+
+    .header-banner {
+      position: relative;
+      margin-top: @grid-gutter-width;
+      margin-bottom: @grid-gutter-half-width;
+      height: 60px;
+
+      .olesnica-doloplazy,
+      .hanacka {
+        position: absolute;
+        bottom: 0;
+      }
+
+      .hanacka {
+        left: @grid-gutter-half-width;
+        height: 60px;
+      }
+
+      .olesnica-doloplazy {
+        right: @grid-gutter-half-width;
+        height: 40px;
+      }
+    }
+  }
+
+  // Main
+  main {
+    .wrapper {
+      max-width: @content-max-width;
+    }
+  }
+
+  // Footer
+  footer {
+  }
+
+  article {
+  }
+
+  hr {
+    height: 30px;
+  }
+
+  hr.small {
+    height: 20px;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  // Global
+  html, body {
+  }
+
+  // Header
+  header {
+    .header-banner {
+      max-width: @content-max-width;
+      height: 90px;
+
+      .hanacka {
+        height: 90px;
+      }
+
+      .olesnica-doloplazy {
+        height: 60px;
+      }
+    }
+  }
+
+  // Main
+  main {
+  }
+
+  // Footer
+  footer {
+    .container {
+      max-width: @content-max-width;
+    }
+  }
+
+  article {
+  }
+
+  hr {
+  }
+}

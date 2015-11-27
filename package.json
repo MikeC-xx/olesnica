@@ -1,0 +1,25 @@
+{
+  "name": "olesnica",
+  "version": "1.0.0",
+  "description": "olesnica ========",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "grunt-less": "^0.1.7",
+    "jquery-locationpicker": "logicify/jquery-locationpicker-plugin",
+    "tinymce": "^4.2.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "jit-grunt": "^0.9.1"
+  }
+}
