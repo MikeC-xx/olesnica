@@ -68,7 +68,7 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
-            cwd: 'src/Olesnica/AdminBundle/js/tinymce/',
+            cwd: 'src/Olesnica/AdminBundle/Resources/public/js/tinymce/',
             src: ['**'],
             dest: 'web/assets/js/tinymce/'
           },
