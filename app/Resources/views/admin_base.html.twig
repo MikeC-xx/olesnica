@@ -12,10 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_admin.css') }}" media="all">
     {% block stylesheets %}
     {% endblock %}
-
-    {% block scripts %}
-      <script type="text/javascript" src="{{ asset('assets/js/olesnica_admin.js') }}"></script>
-    {% endblock %}
   </head>
   <body>
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -86,5 +82,9 @@
 
       {% block fos_user_content %}
       {% endblock fos_user_content %}
+
+      {% block scripts %}
+        <script type="text/javascript" src="{{ asset('assets/js/olesnica_admin.js') }}"></script>
+      {% endblock %}
   </body>
 </html>
