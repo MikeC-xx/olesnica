@@ -68,6 +68,12 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
+            cwd: 'src/Olesnica/AdminBundle/js/tinymce/',
+            src: ['**'],
+            dest: 'web/assets/js/tinymce/'
+          },
+          {
+            expand: true,
             cwd: 'node_modules/jquery-locationpicker/dist/',
             src: ['*.{js,map}'],
             dest: 'web/assets/js/'
