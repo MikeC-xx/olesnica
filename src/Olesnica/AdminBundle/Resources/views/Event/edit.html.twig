@@ -5,3 +5,10 @@
 {% block content %}
   {% include 'OlesnicaAdminBundle:Form:event.html.twig' with {form: form} %}
 {% endblock %}
+
+{% block scripts %}
+  {{ parent() }}
+  {% include('OlesnicaAdminBundle:Form:tinymce.html.twig') %}
+  {% include('OlesnicaAdminBundle:Form:location_picker.html.twig') %}
+  <script type="text/javascript" src="{{ asset('assets/js/event.min.js') }}"></script>
+{% endblock %}

@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/hanacka.png') }}" />
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/hanacka.png') }}" />
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_web.css') }}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_web.min.css') }}" media="all">
     {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.theme.default.css') }}">
@@ -103,8 +103,8 @@
           Copyright © 2015 &bull; <a href="http://michael.cenker.cz" target="_blank">Michael Cenker</a> &bull; <a href="{{ path('olesnica_admin_homepage') }}">Admin</a>
         </div>
       </footer>
-      {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('assets/js/olesnica_web.js') }}"></script>
+      {% block scripts %}
+        <script type="text/javascript" src="{{ asset('assets/js/olesnica_web.min.js') }}"></script>
       {% endblock %}
     </div>
   </body>
