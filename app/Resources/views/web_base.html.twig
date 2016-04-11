@@ -1,9 +1,12 @@
+{% if not subtitle is defined %}
+{% set subtitle = null %}
+{% endif %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Olešnica Doloplazy{% endblock %}</title>
+    <title>{% if subtitle is not null %}{{ subtitle }} &mdash; {% endif %}{% block title %}Olešnica Doloplazy{% endblock %}</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/images/hanacka.ico') }}" />
     <link rel="shortcut icon" href="{{ asset('assets/images/hanacka.png') }}" />
@@ -21,11 +24,13 @@
           <img src="{{ asset('assets/images/hanacka.svg') }}" class="hanacka" alt="Hanačka">
           <img src="{{ asset('assets/images/olesnica-doloplazy.svg') }}" class="olesnica-doloplazy" alt="Olešnica Doloplazy">
         </div>
-        <div class="owl-carousel" id="carousel">
-          <div class="jizda-kralu"></div>
-          <div class="masopust"></div>
-          <div class="soubor"></div>
-        </div>
+        {% if app.request.get('_route') == 'olesnica_web_homepage' %}
+          <div class="owl-carousel" id="carousel">
+            <div class="jizda-kralu"></div>
+            <div class="masopust"></div>
+            <div class="soubor"></div>
+          </div>
+        {% endif %}
         <nav class="navbar navbar-fixed-top navbar-default">
           <div class="container">
             <div class="navbar-header">
@@ -36,7 +41,6 @@
                 <span class="icon-bar"></span>
               </button>
               <a href="#" class="navbar-brand visible-xs">
-                <img src="{{ asset('assets/images/hanacka.svg') }}" class="hanacka" alt="Hanačka">
                 <img src="{{ asset('assets/images/olesnica-doloplazy.svg') }}" class="olesnica-doloplazy" alt="Olešnica Doloplazy">
               </a>
             </div>
@@ -51,8 +55,8 @@
                 <li{{ (app.request.get('_route') == 'olesnica_web_repertoire') ? ' class="active"' }}>
                   <a href="{{ path('olesnica_web_repertoire') }}">Repertoár</a>
                 </li>
-                <li{{ (app.request.get('_route') == 'olesnica_web_ride_of_kings') ? ' class="active"' }}>
-                  <a href="{{ path('olesnica_web_ride_of_kings') }}">Jízda králů</a>
+                <li>
+                  <a href="https://jizdakralu.olesnica.cz">Jízda králů</a>
                 </li>
                 <li{{ (app.request.get('_route') == 'olesnica_web_music') ? ' class="active"' }}>
                   <a href="{{ path('olesnica_web_music') }}">Hudba</a>
@@ -80,24 +84,6 @@
       </main>
       <footer>
         <div class="container">
-          <div class="col-md-4 col-sm-4">
-
-          </div>
-          <div class="col-md-4 col-sm-4">
-
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <h2>Kontaktujte nás</h2>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" placeholder="Váš email" id="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="message">Zpráva</label>
-              <textarea rows="4" id="message" placeholder="Vaše zpráva" class="form-control"></textarea>
-            </div>
-            <input type="submit" class="btn btn-default pull-right" value="Odeslat">
-          </div>
         </div>
         <div class="copyright text-center">
           Copyright © 2015 &bull; <a href="http://michael.cenker.cz" target="_blank">Michael Cenker</a> &bull; <a href="{{ path('olesnica_admin_homepage') }}">Admin</a>

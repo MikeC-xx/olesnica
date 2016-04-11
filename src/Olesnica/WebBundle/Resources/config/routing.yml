@@ -10,10 +10,6 @@ olesnica_web_repertoire:
     path:     /repertoar
     defaults: { _controller: OlesnicaWebBundle:Repertoire:index }
 
-olesnica_web_ride_of_kings:
-    path:     /jizda-kralu
-    defaults: { _controller: OlesnicaWebBundle:RideOfKings:index }
-
 olesnica_web_music:
     path:     /hudba
     defaults: { _controller: OlesnicaWebBundle:Music:index }
