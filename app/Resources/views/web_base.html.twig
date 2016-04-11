@@ -1,6 +1,11 @@
 {% if not subtitle is defined %}
 {% set subtitle = null %}
 {% endif %}
+
+{% if not hasSidebar is defined %}
+{% set hasSidebar = false %}
+{% endif %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -77,8 +82,16 @@
       </header>
       <main>
         <div class="container wrapper">
+          {% if hasSidebar %}
+          <div class="row">
+          {% endif %}
+
           {% block content %}{% endblock %}
           {% block sidebar %}{% endblock %}
+
+          {% if hasSidebar %}
+          </div>
+          {% endif %}
         </div>
         <hr />
       </main>

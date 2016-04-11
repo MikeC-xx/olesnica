@@ -1,5 +1,7 @@
 {% extends 'web_base.html.twig' %}
 
+{% set hasSidebar = true %}
+
 {% block content %}
 <div class="col-md-8 col-sm-8">
   <article>
@@ -36,7 +38,6 @@
 {% endblock %}
 
 {% block sidebar %}
-
 <div class="col-md-4 col-sm-4">
   <div class="panel panel-default">
     <div class="panel-heading">Nejbližší akce</div>
