@@ -41,8 +41,12 @@ Olesnica\AdminBundle\Entity\Event:
             length: 255
             nullable: false
         longDescription:
-            type: string
+            type: text
             length: 65536
+            nullable: true
+        galleryUrl:
+            type: string
+            length: 255
             nullable: true
     oneToMany:
         attachments:
@@ -51,8 +55,4 @@ Olesnica\AdminBundle\Entity\Event:
             orphanRemoval: true
             mappedBy: event
             cascade: ['all']
-    oneToOne:
-        gallery:
-            targetEntity: Gallery
-            mappedBy: event
     lifecycleCallbacks: {  }

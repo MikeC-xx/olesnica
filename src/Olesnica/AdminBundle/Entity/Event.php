@@ -164,9 +164,9 @@ class Event
     private $longDescription;
 
     /**
-     * @var \Olesnica\AdminBundle\Entity\Gallery
+     * @var string
      */
-    private $gallery;
+    private $galleryUrl;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -438,26 +438,26 @@ class Event
     }
 
     /**
-     * Set gallery
+     * Set galleryUrl
      *
-     * @param \Olesnica\AdminBundle\Entity\Gallery $gallery
+     * @param string $galleryUrl
      * @return Event
      */
-    public function setGallery(\Olesnica\AdminBundle\Entity\Gallery $gallery = null)
+    public function setGalleryUrl($galleryUrl)
     {
-        $this->gallery = $gallery;
+        $this->galleryUrl = $galleryUrl;
 
         return $this;
     }
 
     /**
-     * Get gallery
+     * Get galleryUrl
      *
-     * @return \Olesnica\AdminBundle\Entity\Gallery 
+     * @return string 
      */
-    public function getGallery()
+    public function getGalleryUrl()
     {
-        return $this->gallery;
+        return $this->galleryUrl;
     }
 
     /**
