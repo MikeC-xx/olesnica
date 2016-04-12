@@ -10,7 +10,11 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/hanacka.png') }}" />
 
     {% block stylesheets %}
-      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_admin.min.css') }}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_admin.min.css') }}" media="all">
+    {% endblock %}
+
+    {% block scripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/olesnica_admin.min.js') }}"></script>
     {% endblock %}
   </head>
   <body>
@@ -82,9 +86,5 @@
 
       {% block fos_user_content %}
       {% endblock fos_user_content %}
-
-      {% block scripts %}
-        <script type="text/javascript" src="{{ asset('assets/js/olesnica_admin.min.js') }}"></script>
-      {% endblock %}
   </body>
 </html>
