@@ -1,3 +1,10 @@
+{% set cssVersion = 1 %}
+{% set jsVersion = 1 %}
+
+{% if not subtitle is defined %}
+{% set subtitle = null %}
+{% endif %}
+
 {% if not subtitle is defined %}
 {% set subtitle = null %}
 {% endif %}
@@ -17,10 +24,13 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/hanacka.png') }}" />
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/hanacka.png') }}" />
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_web.min.css') }}" media="all">
+    {% if app.request.get('_route') == 'olesnica_web_homepage' %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_web_all.min.css?v' ~ cssVersion) }}" media="all">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/olesnica_web.min.css?v' ~ cssVersion) }}" media="all">
+    {% endif %}
+
     {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.theme.default.css') }}">
     {% endblock %}
   </head>
   <body>
@@ -103,7 +113,7 @@
         </div>
       </footer>
       {% block scripts %}
-      <script type="text/javascript" src="{{ asset('assets/js/olesnica_web.min.js') }}" async defer></script>
+      <script type="text/javascript" src="{{ asset('assets/js/olesnica_web.min.js?v' ~ jsVersion) }}" async defer></script>
       {% endblock %}
     </div>
   </body>

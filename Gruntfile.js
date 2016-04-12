@@ -17,6 +17,7 @@ module.exports = function(grunt) {
         },
         files: {
           '.tmp/css/olesnica_web.css': 'src/Olesnica/WebBundle/Resources/public/less/main.less',
+          '.tmp/css/olesnica_web_all.css': 'src/Olesnica/WebBundle/Resources/public/less/main_all.less',
           '.tmp/css/olesnica_admin.css': 'src/Olesnica/AdminBundle/Resources/public/less/main.less'
         }
       }
@@ -67,6 +68,10 @@ module.exports = function(grunt) {
       web: {
         src: '.tmp/css/olesnica_web.css',
         dest: 'web/assets/css/olesnica_web.min.css'
+      },
+      webAll: {
+        src: '.tmp/css/olesnica_web_all.css',
+        dest: 'web/assets/css/olesnica_web_all.min.css'
       },
       admin: {
         src: '.tmp/css/olesnica_admin.css',
