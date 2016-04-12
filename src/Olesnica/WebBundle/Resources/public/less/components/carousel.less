@@ -1,20 +1,29 @@
-.jizda-kralu {
-  background-image: url('@{base-path}/images/jizda-kralu.jpg');
+.make-carousel-background(@image) {
+  .@{image} {
+    background-image: url('@{base-path}/images/@{image}_xs.jpg');
+    height: @carousel-xs-height;
+    background-size: cover;
+    background-position: center;
+
+    @media (min-width: @screen-xs-min) {
+      height: @carousel-sm-height;
+      background-image: url('@{base-path}/images/@{image}_sm.jpg');
+    }
+
+    @media (min-width: @screen-sm-min) {
+      height: @carousel-md-height;
+      background-image: url('@{base-path}/images/@{image}_md.jpg');
+    }
+
+    @media (min-width: @screen-md-min) {
+      background-image: url('@{base-path}/images/@{image}_lg.jpg');
+    }
+  }
 }
 
-.masopust {
-  background-image: url('@{base-path}/images/masopust.jpg');
-}
-
-.soubor {
-  background-image: url('@{base-path}/images/soubor.jpg');
-}
-
-.soubor, .jizda-kralu, .masopust {
-  height: @carousel-xs-height;
-  background-size: cover;
-  background-position: center;
-}
+.make-carousel-background(jizdakralu);
+.make-carousel-background(masopust);
+.make-carousel-background(soubor);
 
 .owl-theme .owl-controls {
   position: absolute;
@@ -25,16 +34,4 @@
 
 .owl-theme .owl-dots .owl-dot span {
   border: 1px #555 solid;
-}
-
-@media (min-width: @screen-sm-min) {
-  .soubor, .jizda-kralu, .masopust {
-    height: @carousel-sm-height;
-  }
-}
-
-@media (min-width: @screen-md-min) {
-  .soubor, .jizda-kralu, .masopust {
-    height: @carousel-md-height;
-  }
 }
