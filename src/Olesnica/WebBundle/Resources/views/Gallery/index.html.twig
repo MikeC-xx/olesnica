@@ -3,6 +3,11 @@
 {% set subtitle = 'Galerie' %}
 
 {% block content %}
-<h1>Galerie</h1>
-<br /><br /><br /><br /><br /><br />
+<h1 class="offset-bottom">Galerie</h1>
+{% for event in galleries %}
+  <article class="text-center col-sm-6 col-md-4">
+    <h2>{{ event.title }}<br><small>{{event.startDate|date('j. n. Y') }}</h2>
+    <a href="{{ event.galleryUrl }}" class="btn btn-success" target="_blank">otevřít galerii</a>
+  </article>
+{% endfor %}
 {% endblock %}

@@ -75,4 +75,16 @@ class EventRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getGalleries()
+    {
+        $qb = $this->createQueryBuilder('e');
+        $qb->select('e')
+            ->where($qb->expr()->isNotNull('e.galleryUrl'))
+            ->orderBy('e.startDate', 'DESC')
+            ->addOrderBy('e.startTime', 'DESC')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }
