@@ -23,13 +23,15 @@ class EventType extends AbstractType
               )
             ))
             ->add('performance', null, array(
-              'label' => 'Akce je vystoupení'
+              'label' => 'Akce je vystoupení',
+              'required' => false
             ))
             ->add('startDate', 'date', array(
               'label' => 'Datum'
             ))
             ->add('setStartTime', 'checkbox', array(
               'label' => 'Zadat čas',
+              'required' => false,
               'mapped' => false,
               'attr' => array(
                 'class' => 'set-start-time'
@@ -43,6 +45,7 @@ class EventType extends AbstractType
             ))
             ->add('setFinishDate', 'checkbox', array(
               'label' => 'Zadat konec akce',
+              'required' => false,
               'mapped' => false,
               'attr' => array(
                 'class' => 'set-finish-date'
@@ -56,6 +59,7 @@ class EventType extends AbstractType
             ))
             ->add('setFinishTime', 'checkbox', array(
               'label' => 'Zadat čas',
+              'required' => false,
               'mapped' => false,
               'attr' => array(
                 'class' => 'set-finish-time'
@@ -108,7 +112,8 @@ class EventType extends AbstractType
               'label' => 'Přílohy',
               'type' => new AttachmentType(),
               'allow_add' => true,
-              'allow_delete' => true
+              'allow_delete' => true,
+              'cascade_validation' => true
             ))
             ->add('save', 'submit', array(
               'label' => 'Uložit',
@@ -126,7 +131,8 @@ class EventType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Olesnica\AdminBundle\Entity\Event'
+            'data_class' => 'Olesnica\AdminBundle\Entity\Event',
+            'cascade_validation' => true
         ));
     }
 

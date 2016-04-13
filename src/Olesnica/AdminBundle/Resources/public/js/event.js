@@ -24,36 +24,29 @@ $(document).ready(function() {
   $('.set-finish-date').change(setFinishDate);
   $('.set-finish-time').change(setFinishTime);
 
-  $('.attachment').each(function() {
-    var attachment = $(this);
-    var btnDelete = attachment.find('.btn-delete');
-    var btnCancel = attachment.find('.btn-cancel');
-    btnDelete.click(function() {
-      attachment.addClass('attachment--deleted');
-      btnDelete.addClass('hidden');
-      btnCancel.removeClass('hidden');
+  var attachments = $('#attachments');
+  var addedAttachments = $('#added-attachments');
+  var prototype = attachments.data('prototype') + '<hr />';
+  $('#add-attachment').click(function() {
+    var index = attachments.data('index');
+    var item = $(prototype.replace(/__name__/g, index));
+    item.find('button[data-action="delete"]').click(function() {
+      item.remove();
     });
-    btnCancel.click(function() {
-      attachment.removeClass('attachment--deleted');
-      btnDelete.removeClass('hidden');
-      btnCancel.addClass('hidden');
+
+    attachments.data('index', index + 1);
+    addedAttachments.append(item);
+  });
+
+  $('button[data-action="delete"]').each(function() {
+    $(this).click(function() {
+      $(this).parent().parent().remove();
     });
   });
 
-  /*
-  $('form').submit(function() {
-    var form = $(this);
-    var url = form.prop('action');
-    var formData = form.serializeArray();
-    $.post(url, formData).done(function(data) {
-      console.log(data);
-    });
-    return false;
-  });
-  */
   $('form').on('keyup keypress', function(e) {
     var code = e.keyCode || e.which;
-    if (code == 13) {
+    if (code === 13) {
       e.preventDefault();
       return false;
     }

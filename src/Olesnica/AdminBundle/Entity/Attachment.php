@@ -27,7 +27,7 @@ class Attachment
 
     public function getSluggableFields()
     {
-        return array('title', 'id');
+        return array('title');
     }
 
     public function getAbsolutePath()
@@ -83,7 +83,7 @@ class Attachment
 
         // move takes the target directory and then the
         // target filename to move to
-        $this->setPath($this->getSlug().'.'.$this->file->guessExtension());
+        $this->setPath($this->getSlug().'-'.$this->getId().'.'.$this->file->guessExtension());
         $this->getFile()->move(
             $this->getUploadRootDir(),
             $this->getPath()

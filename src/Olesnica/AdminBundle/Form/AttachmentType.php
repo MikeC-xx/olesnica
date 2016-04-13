@@ -3,6 +3,7 @@
 namespace Olesnica\AdminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Olesnica\AdminBundle\Event;
@@ -18,13 +19,30 @@ class AttachmentType extends AbstractType
     {
         $builder
             ->add('title', null, array(
-              'label' => 'Název'
+              'label' => 'Název',
+              'required' => true,
+              'attr' => array(
+                'autocomplete' => 'off'
+              )
             ))
             ->add('file', 'file', array(
               'label' => 'Soubor',
               'required' => true
             ))
-            //->add('event')
+            ->add('path', null, array(
+              'label' => 'Soubor',
+              'required' => true,
+              'attr' => array(
+                'readonly' => true
+              )
+            ))
+            ->add('delete', 'button', array(
+              'label' => 'Smazat přílohu',
+              'attr' => array(
+                'class' => 'btn-xs btn-danger center-block',
+                'data-action' => 'delete'
+              )
+            ))
         ;
     }
 
@@ -34,7 +52,16 @@ class AttachmentType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Olesnica\AdminBundle\Entity\Attachment'
+            'data_class' => 'Olesnica\AdminBundle\Entity\Attachment',
+            'validation_groups' => function (FormInterface $form) {
+              $data = $form->getData();
+
+              if ($data->getPath()) {
+                  return array('Default', 'path');
+              } else {
+                  return array('Default', 'file');
+              }
+            }
         ));
     }
 

@@ -31,29 +31,14 @@ class EventController extends Controller
 
         $form = $this->createForm(new EventType(), $event, array());
 
-        /*
-        $ajax = $request->isXmlHttpRequest();
-
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
           $form->handleRequest($request);
 
           if ($form->isValid()) {
 
-          } else {
-            if ($ajax) {
-              return new Response(json_encode(array(
-                'status' => 'error',
-                'errors' => 'asdf'
-              )));
+            foreach ($event->getAttachments() as $attachment) {
+              $event->addAttachment($attachment);
             }
-          }
-        }
-        */
-        if ($request->getMethod() == 'POST') {
-          $form->handleRequest($request);
-
-          if ($form->isValid()) {
-            //$event = $form->getData();
 
             $em->persist($event);
             $em->flush();

@@ -15,19 +15,9 @@ Olesnica\AdminBundle\Entity\Attachment:
     properties:
         title:
             - NotBlank: ~
+        file:
+            - NotBlank:
+                groups: [file]
         path:
-            - NotBlank: ~
-        event:
-            - NotNull: ~
-
-Olesnica\AdminBundle\Entity\Gallery:
-      properties:
-          event:
-              - NotNull: ~
-
-Olesnica\AdminBundle\Entity\Picture:
-      properties:
-          file:
-              - NotBlank: ~
-          gallery_id:
-              - NotNull: ~
+            - NotBlank:
+                groups: [path]

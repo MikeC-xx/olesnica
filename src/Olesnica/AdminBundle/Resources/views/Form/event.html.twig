@@ -9,6 +9,7 @@
     </div>
     <div class="panel-body">
       {{ form_start(form) }}
+        {{ form_errors(form) }}
         {{ form_row(form.title) }}
         {{ form_row(form.performance) }}
         <div class="form-group">
@@ -53,22 +54,29 @@
         </div>
         {{ form_row(form.shortDescription) }}
         {{ form_row(form.longDescription) }}
+        {{ form_row(form.galleryUrl) }}
         <div class="form-group">
           {{ form_label(form.attachments) }}
           <div class="col-sm-10">
-            <div class="attachments" data-prototype="{{ form_widget(form.attachments.vars.prototype.file)|e }}">
+            {% set attachmentPrototype = form.attachments.vars.prototype %}
+            <div id="attachments" class="attachments form-box" data-index="{{ form.attachments|length }}" data-prototype="{{ form_row(attachmentPrototype.title)|e }}{{ form_row(attachmentPrototype.file)|e }}{{ form_row(attachmentPrototype.delete)|e }}">
               {% for attachment in form.attachments %}
-              <div class="attachment-link">
-                <div class="attachment attachment--deleted">
-                  <div class="attachment-icon attachment-docx"></div>
-                  <div class="attachment-filename hidden-xs"><small>{{ attachment.vars.value.path }}</small></div>
-                  <div class="attachment-title">{{ attachment.vars.value.title }}</div>
-                  <div class="clearfix hidden-xs"></div>
-                  <div class="btn btn-danger btn-xs btn-delete">Smazat</div>
-                  <div class="btn btn-primary btn-xs btn-cancel hidden">Zrušit smazání</div>
-                </div>
+              <div>
+                {{ form_row(attachment.title) }}
+                {% if attachment.vars.value.path %}
+                  {{ form_row(attachment.path) }}
+                {% else %}
+                  {{ form_row(attachment.file) }}
+                  {{ form_errors(attachment.path) }}
+                {% endif %}
+                {{ form_row(attachment.delete) }}
+                <hr>
               </div>
               {% endfor %}
+              <div id="added-attachments"></div>
+              <div class="form-group">
+                <button id="add-attachment" type="button" class="btn btn-xs btn-default center-block">Nová příloha</button>
+              </div>
             </div>
           </div>
         </div>
