@@ -3,17 +3,8 @@
 {% set subtitle = 'Hudba' %}
 
 {% block content %}
-<h1 class="offset-bottom">Hudba</h1>
+<h1 class="offset-bottom">{{ data.musicTitle}}</h1>
 <article>
-  <p>
-    Hanácká muzika Jana Malíčka původně vznikla jako hudební doprovod pro soubor Olešnica.<br>
-    Postupem času se však osamostatnila, a nyní vystupuje i sólově. V současné době také doprovází soubor Týnečácí z Velkého Týnce.<br>
-    Vedoucí hudby Jan Malíček zároveň upravil a rozepsal všechny skladby.<br>
-  </p>
-
-  <h2>Obsazení:</h2>
-  <p>
-    dvoje housle, dva klarinety, kontrabas, harmonika, flétna a zpěv
-  </p>
+  {{ data.musicText|raw}}
 </article>
 {% endblock %}

@@ -8,6 +8,9 @@ class MusicController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('OlesnicaWebBundle:Music:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('OlesnicaAdminBundle:Music')->findBy(array('id' => 1))[0];
+
+        return $this->render('OlesnicaWebBundle:Music:index.html.twig', array('data' => $data));
     }
 }

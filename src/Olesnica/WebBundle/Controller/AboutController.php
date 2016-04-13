@@ -8,6 +8,9 @@ class AboutController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('OlesnicaWebBundle:About:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('OlesnicaAdminBundle:About')->findBy(array('id' => 1))[0];
+
+        return $this->render('OlesnicaWebBundle:About:index.html.twig', array('data' => $data));
     }
 }

@@ -14,7 +14,8 @@ class HomepageController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $recentEvents = $em->getRepository('OlesnicaAdminBundle:Event')->getLatestEvents(5);
+        $data = $em->getRepository('OlesnicaAdminBundle:Home')->findBy(array('id' => 1))[0];
 
-        return $this->render('OlesnicaWebBundle:Home:index.html.twig', array('recentEvents' => $recentEvents));
+        return $this->render('OlesnicaWebBundle:Home:index.html.twig', array('recentEvents' => $recentEvents, 'data' => $data));
     }
 }

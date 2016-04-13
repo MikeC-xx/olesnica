@@ -5,9 +5,9 @@
 {% block content %}
 <div class="col-md-8 col-sm-8">
   <article>
-    <h1>Vítejte na stránkách hanáckého národopisného souboru Olešnica Doloplazy</h1>
+    <h1>{{ data.welcomeTitle }}</h1>
     <p class="lead">
-      Udržujeme tradice a zvyky na Hané už více jak 50 let...
+      {{ data.welcomeText }}
     </p>
     <div class="pull-right">
       <a class="btn btn-success btn-xs" href="{{ path('olesnica_web_about') }}">více o souboru</a>
@@ -15,9 +15,9 @@
   </article>
 
   <article>
-    <h1>Vystoupení</h1>
+    <h1>{{ data.repertoireTitle }}</h1>
     <p class="lead">
-      Nabízíme 10 minutové až 2 hodinové živé vstupy s hudbou na kulturních akcích...
+      {{ data.repertoireText }}
     </p>
     <div class="pull-right">
       <a class="btn btn-success btn-xs" href="{{ path('olesnica_web_repertoire') }}">více o repertoáru</a>
@@ -25,9 +25,9 @@
   </article>
 
   <article>
-    <h1>Jízda králů</h1>
+    <h1>{{ data.rideOfKingsTitle }}</h1>
     <p class="lead">
-      Každoročně pořádáme jedinou hanáckou Jízdu králů v České republice...
+      {{ data.rideOfKingsText }}
     </p>
     <div class="pull-right">
       <a class="btn btn-success btn-xs" href="https://jizdakralu.olesnica.cz">více o jízdě králů</a>

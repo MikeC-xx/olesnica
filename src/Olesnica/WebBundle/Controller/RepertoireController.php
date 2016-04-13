@@ -15,6 +15,8 @@ class RepertoireController extends Controller
 
         $recentPerformances = $em->getRepository('OlesnicaAdminBundle:Event')->getRecentEvents(5, true);
 
-        return $this->render('OlesnicaWebBundle:Repertoire:index.html.twig', array('recentPerformances' => $recentPerformances));
+        $data = $em->getRepository('OlesnicaAdminBundle:Repertoire')->findBy(array('id' => 1))[0];
+
+        return $this->render('OlesnicaWebBundle:Repertoire:index.html.twig', array('recentPerformances' => $recentPerformances, 'data' => $data));
     }
 }
