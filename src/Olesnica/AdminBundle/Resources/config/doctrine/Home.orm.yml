@@ -1,0 +1,29 @@
+Olesnica\AdminBundle\Entity\Home:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        welcomeTitle:
+            type: string
+            length: 255
+        welcomeText:
+            type: string
+            length: 255
+        repertoireTitle:
+            type: string
+            length: 255
+        repertoireText:
+            type: string
+            length: 255
+        rideOfKingsTitle:
+            type: string
+            length: 255
+        rideOfKingsText:
+            type: text
+            length: 255
+    lifecycleCallbacks: {  }

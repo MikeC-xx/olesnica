@@ -21,3 +21,43 @@ Olesnica\AdminBundle\Entity\Attachment:
         path:
             - NotBlank:
                 groups: [path]
+
+Olesnica\AdminBundle\Entity\About:
+    properties:
+        aboutTitle:
+            - NotBlank: ~
+        aboutText:
+            - NotBlank: ~
+        historyTitle:
+            - NotBlank: ~
+        historyText:
+            - NotBlank: ~
+
+Olesnica\AdminBundle\Entity\Home:
+    properties:
+        welcomeTitle:
+            - NotBlank: ~
+        welcomeText:
+            - NotBlank: ~
+        repertoireTitle:
+            - NotBlank: ~
+        repertoireText:
+            - NotBlank: ~
+        rideOfKingsTitle:
+            - NotBlank: ~
+        rideOfKingsText:
+            - NotBlank: ~
+
+Olesnica\AdminBundle\Entity\Music:
+    properties:
+        musicTitle:
+            - NotBlank: ~
+        musicText:
+            - NotBlank: ~
+
+Olesnica\AdminBundle\Entity\Repertiore:
+    properties:
+        repertoireTitle:
+            - NotBlank: ~
+        repertoireText:
+            - NotBlank: ~

@@ -1,0 +1,25 @@
+Olesnica\AdminBundle\Entity\About:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        aboutTitle:
+            type: string
+            length: 255
+        aboutText:
+            type: text
+            length: 65536
+            nullable: true
+        historyTitle:
+            type: string
+            length: 255
+        historyText:
+            type: text
+            length: 65536
+            nullable: true
+    lifecycleCallbacks: {  }

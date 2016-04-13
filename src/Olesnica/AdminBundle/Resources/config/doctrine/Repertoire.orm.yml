@@ -1,0 +1,17 @@
+Olesnica\AdminBundle\Entity\Repertoire:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        repertoireTitle:
+            type: string
+            length: 255
+        repertoireText:
+            type: text
+            length: 65536
+    lifecycleCallbacks: {  }

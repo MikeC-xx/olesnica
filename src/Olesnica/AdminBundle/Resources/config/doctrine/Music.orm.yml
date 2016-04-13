@@ -1,0 +1,17 @@
+Olesnica\AdminBundle\Entity\Music:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        musicTitle:
+            type: string
+            length: 255
+        musicText:
+            type: text
+            length: 65536
+    lifecycleCallbacks: {  }
