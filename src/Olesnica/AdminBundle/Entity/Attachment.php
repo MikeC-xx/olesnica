@@ -41,7 +41,7 @@ class Attachment
     {
         return null === $this->getPath()
             ? null
-            : $this->getUploadDir().'/'.$this->getPath();
+            : '/'.$this->getUploadDir().'/'.$this->getPath();
     }
 
     protected function getUploadRootDir()
@@ -95,6 +95,56 @@ class Attachment
         // Clean up the file property as you won't need it anymore
         $this->setFile(null);
     }
+
+    public function getIcon()
+    {
+        if ($this->getPath()) {
+            $ext = pathinfo($this->getPath(), PATHINFO_EXTENSION);
+            return $ext;
+
+            switch ($ext) {
+                case 'doc':
+                    $ext = 'docx';
+                    break;
+                case 'jpg':
+                    $ext = 'jpeg';
+                    break;
+                case 'mp4':
+                    $ext = 'mpeg4';
+                    break;
+                case 'ppt':
+                    $ext = 'pptx';
+                    break;
+                case 'xls':
+                    $ext = 'xlsx';
+                    break;
+            }
+
+            $supported = false;
+
+            switch ($ext) {
+                case 'docx':
+                case 'jpeg':
+                case 'mp3':
+                case 'mpeg4':
+                case 'pdf':
+                case 'png':
+                case 'pptx':
+                case 'rtf':
+                case 'txt':
+                case 'xlsx':
+                    $supported = true;
+                    break;
+            }
+
+            if ($supported) {
+                return $ext;
+            }
+        }
+
+        return 'default';
+    }
+
     /**
      * @var integer
      */
