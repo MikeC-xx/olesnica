@@ -1,4 +1,4 @@
-{% set cssVersion = 2 %}
+{% set cssVersion = 3 %}
 {% set jsVersion = 2 %}
 
 {% if not subtitle is defined %}
@@ -36,8 +36,12 @@
   <body>
       <header>
         <div class="header-banner container center-block hidden-xs">
-          <img src="{{ asset('assets/images/hanacka.svg') }}" class="hanacka" alt="Hanačka">
-          <img src="{{ asset('assets/images/olesnica-doloplazy.svg') }}" class="olesnica-doloplazy" alt="Olešnica Doloplazy">
+          <a href="{{ path('olesnica_web_homepage' )}}">
+            <img src="{{ asset('assets/images/hanacka.svg') }}" class="hanacka" alt="Hanačka">
+          </a>
+          <a href="{{ path('olesnica_web_homepage' )}}">
+            <img src="{{ asset('assets/images/olesnica-doloplazy.svg') }}" class="olesnica-doloplazy" alt="Olešnica Doloplazy">
+          </a>
         </div>
         {% if app.request.get('_route') == 'olesnica_web_homepage' %}
           <div class="owl-carousel" id="carousel">
