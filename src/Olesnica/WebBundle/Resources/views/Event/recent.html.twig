@@ -1,0 +1,10 @@
+{% extends 'web_base.html.twig' %}
+
+{% set subtitle = 'Minulé akce' %}
+
+{% block content %}
+<section class="offset-bottom">
+  <h1>Minulé akce</h1>
+  {% include 'OlesnicaWebBundle:_partials:list_of_events_big.html.twig' with { events: recentEvents } %}
+</section>
+{% endblock %}

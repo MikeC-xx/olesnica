@@ -43,6 +43,9 @@
     <div class="panel-heading">Nejbližší akce</div>
     <div class="panel-body">
       {% include 'OlesnicaWebBundle:_partials:list_of_events.html.twig' with {events: recentEvents} %}
+      <div class="text-center">
+        <a href="{{ path('olesnica_web_events') }}" class="btn btn-xs btn-success">další akce</a>
+      </div>
     </div>
   </div>
 </div>

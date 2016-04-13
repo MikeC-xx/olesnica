@@ -18,6 +18,10 @@ olesnica_web_events:
     path:     /akce
     defaults: { _controller: OlesnicaWebBundle:Event:index }
 
+olesnica_web_events_recent:
+    path:     /uplynule-akce
+    defaults: { _controller: OlesnicaWebBundle:Event:recent }
+
 olesnica_web_events_show_id:
     path: /akce/{id}
     requirements:
