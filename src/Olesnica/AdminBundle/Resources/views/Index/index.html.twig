@@ -5,7 +5,10 @@
 {% block content %}
 <h3>Dostupné moduly pro správu</h3>
 <ul>
-  <li><a href="{{ path('olesnica_admin_events') }}">Akce</a> <small>vystoupení, plesy, jiné události</small></li>
-  <li><a href="{{ path('olesnica_admin_gallery') }}">Galerie</a> <small>fotky z akcí</small></li>
+  <li><a href="{{ path('olesnica_admin_home') }}">Úvod</a> <small>texty na úvodní straně webu</small></li>
+  <li><a href="{{ path('olesnica_admin_about') }}">O souboru</a> <small>texty v záložce "O souboru"</small></li>
+  <li><a href="{{ path('olesnica_admin_repertoire') }}">Repertoár</a> <small>text v záložce "Repertoár"</small></li>
+  <li><a href="{{ path('olesnica_admin_music') }}">Hudba</a> <small>text v záložce "Hudba"</small></li>
+  <li><a href="{{ path('olesnica_admin_events') }}">Akce</a> <small>správa vystoupení, plesy, jiné události</small></li>
 </ul>
 {% endblock %}
