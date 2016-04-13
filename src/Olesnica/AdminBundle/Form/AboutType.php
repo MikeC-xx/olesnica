@@ -41,6 +41,12 @@ class AboutType extends AbstractType
                 'autocomplete' => 'off'
               )
             ))
+            ->add('save', 'submit', array(
+              'label' => 'Uložit',
+              'attr' => array(
+                'class' => 'btn-success'
+              )
+            ))
         ;
     }
 
