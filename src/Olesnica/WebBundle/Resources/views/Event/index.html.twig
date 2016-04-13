@@ -12,11 +12,11 @@
   {% endif %}
 </section>
 <hr>
-<section class="offset-bottom clearfix">
+<section>
   <h1 class="offset-bottom">Minulé akce</h1>
   {% include 'OlesnicaWebBundle:_partials:list_of_events_big.html.twig' with { events: recentEvents } %}
-  <div class="text-center">
+  <article class="text-center">
     <a href="{{ path('olesnica_web_events_recent') }}" class="btn btn-success">všechny minulé akce</a>
-  </div>
+  </article>
 </section>
 {% endblock %}

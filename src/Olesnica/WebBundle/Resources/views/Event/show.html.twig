@@ -33,11 +33,16 @@
         <a href="{{ attachment.getWebPath }}" class="attachment-link">
           <div class="attachment">
             <div class="attachment-icon attachment-{{ attachment.getIcon }}"></div>
-            <div class="attachment-filename hidden-xs"><small>{{attachment.path }}</small></div>
-            <div class="attachment-title">{{attachment.title }}</div>
+            <div class="attachment-filename hidden-xs"><small>{{ attachment.path }}</small></div>
+            <div class="attachment-title">{{ attachment.title }}</div>
           </div>
         </a>
       {% endfor %}
+    {% endif %}
+
+    {% if event.galleryUrl is not null %}
+      <h2 class="h1 offset-bottom">Galerie</h2>
+      <a href="{{ event.galleryUrl }}" class="btn btn-success" target="_blank">otevřít galerii</a>
     {% endif %}
   </article>
 </div>
