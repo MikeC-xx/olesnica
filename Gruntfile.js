@@ -141,14 +141,22 @@ module.exports = function(grunt) {
         files: [
           // Web
           'src/Olesnica/WebBundle/Resources/public/less/**/*.less',
-          'src/Olesnica/WebBundle/Resources/public/js/**/*.js',
-          'src/Olesnica/WebBundle/Resources/public/images/**/*',
           // Admin
           'src/Olesnica/AdminBundle/Resources/public/less/**/*.less',
-          'src/Olesnica/AdminBundle/Resources/public/js/**/*.js',
-          'src/Olesnica/AdminBundle/Resources/public/images/**/*',
         ],
-        tasks: ['clean', 'less', 'concat', 'postcss', 'uglify', 'copy'],
+        tasks: ['less', 'postcss'],
+        options: {
+          nospawn: true
+        }
+      },
+      scripts: {
+        files: [
+          // Web
+          'src/Olesnica/WebBundle/Resources/public/js/**/*.js',
+          // Admin
+          'src/Olesnica/AdminBundle/Resources/public/js/**/*.js',
+        ],
+        tasks: ['concat', 'uglify'],
         options: {
           nospawn: true
         }
