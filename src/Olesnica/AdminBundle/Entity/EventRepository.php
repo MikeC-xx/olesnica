@@ -38,7 +38,7 @@ class EventRepository extends EntityRepository
         }
 
         $qb->orderBy('e.startDate', 'DESC')
-            ->addOrderBy('e.startTime', 'DESC')
+            ->addOrderBy('e.startTime', 'ASC')
         ;
 
         return $qb->getQuery()->getResult();
@@ -70,7 +70,7 @@ class EventRepository extends EntityRepository
         }
 
         $qb->orderBy('e.startDate', 'DESC')
-           ->addOrderBy('e.startTime', 'DESC')
+           ->addOrderBy('e.startTime', 'ASC')
         ;
 
         return $qb->getQuery()->getResult();
@@ -82,7 +82,7 @@ class EventRepository extends EntityRepository
         $qb->select('e')
             ->where($qb->expr()->isNotNull('e.galleryUrl'))
             ->orderBy('e.startDate', 'DESC')
-            ->addOrderBy('e.startTime', 'DESC')
+            ->addOrderBy('e.startTime', 'ASC')
         ;
 
         return $qb->getQuery()->getResult();

@@ -16,7 +16,7 @@ class EventController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $events = $em->getRepository('OlesnicaAdminBundle:Event')->findBy(array(), array('startDate' => 'DESC', 'startTime' => 'DESC'));
+        $events = $em->getRepository('OlesnicaAdminBundle:Event')->findBy(array(), array('startDate' => 'DESC', 'startTime' => 'ASC'));
 
         return $this->render('OlesnicaAdminBundle:Event:index.html.twig', array('events' => $events));
     }
