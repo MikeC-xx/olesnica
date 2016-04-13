@@ -27,21 +27,18 @@
     <a href="{{ mapUrl }}" class="offset-bottom-small" style="display: inline-block;" target="_blank" title="Zobrazit mapu (otevře se v novém okně)" data-toggle="tooltip">
       <img src="{{ imgUrl }}" alt="Mapa: {{ event.location }}" width="{{ mapWidth }}" height="{{ mapHeight }}" class="img-responsive" style="display: inline-block;">
     </a>
-    <h2 class="h1">Přílohy</h2>
-    <a href="#" class="attachment-link">
-      <div class="attachment">
-        <div class="attachment-icon attachment-docx"></div>
-        <div class="attachment-filename hidden-xs"><small>detaily-k-akci-1.docx</small></div>
-        <div class="attachment-title">Detaily k akci</div>
-      </div>
-    </a>
-    <a href="#" class="attachment-link">
-      <div class="attachment">
-        <div class="attachment-icon attachment-pdf"></div>
-        <div class="attachment-filename hidden-xs"><small>plakat-slavnosti-prostejov-2.pdf</small></div>
-        <div class="attachment-title">Plakát: slavnosti Prostějov</div>
-      </div>
-    </a>
+    {% if event.attachments|length > 0 %}
+      <h2 class="h1">Přílohy</h2>
+      {% for attachment in event.attachments %}
+        <a href="{{ attachment.getWebPath }}" class="attachment-link">
+          <div class="attachment">
+            <div class="attachment-icon attachment-{{ attachment.getIcon }}"></div>
+            <div class="attachment-filename hidden-xs"><small>{{attachment.path }}</small></div>
+            <div class="attachment-title">{{attachment.title }}</div>
+          </div>
+        </a>
+      {% endfor %}
+    {% endif %}
   </article>
 </div>
 {% endblock %}
