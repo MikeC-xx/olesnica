@@ -6,8 +6,7 @@
   {% include 'OlesnicaAdminBundle:Form:event.html.twig' with {form: form} %}
 {% endblock %}
 
-{% block scripts %}
-  {{ parent() }}
+{% block scripts_after %}
   {% include('OlesnicaAdminBundle:Form:tinymce.html.twig') %}
   {% include('OlesnicaAdminBundle:Form:location_picker.html.twig') %}
   <script type="text/javascript" src="{{ asset('assets/js/event.min.js') }}"></script>
