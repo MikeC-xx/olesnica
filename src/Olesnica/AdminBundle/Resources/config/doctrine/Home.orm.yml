@@ -24,6 +24,6 @@ Olesnica\AdminBundle\Entity\Home:
             type: string
             length: 255
         rideOfKingsText:
-            type: text
+            type: string
             length: 255
     lifecycleCallbacks: {  }

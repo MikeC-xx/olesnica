@@ -1,6 +1,6 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Akce{% endblock %}
+{% block title %}Úvod{% endblock %}
 
 {% block content %}
   {% include 'OlesnicaAdminBundle:Form:form.html.twig' with { 'form': form } %}
@@ -8,6 +8,4 @@
 
 {% block scripts_after %}
   {% include('OlesnicaAdminBundle:Form:tinymce.html.twig') %}
-  {% include('OlesnicaAdminBundle:Form:location_picker.html.twig') %}
-  <script type="text/javascript" src="{{ asset('assets/js/event.min.js') }}"></script>
 {% endblock %}

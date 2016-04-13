@@ -1,6 +1,22 @@
-olesnica_admin_homepage:
+olesnica_admin_index:
     path:     /
     defaults: { _controller: OlesnicaAdminBundle:Index:index }
+
+olesnica_admin_home:
+    path:     /uvod
+    defaults: { _controller: OlesnicaAdminBundle:Home:index }
+
+olesnica_admin_about:
+    path:     /o-souboru
+    defaults: { _controller: OlesnicaAdminBundle:About:index }
+
+olesnica_admin_repertoire:
+    path:     /repertoar
+    defaults: { _controller: OlesnicaAdminBundle:Repertoire:index }
+
+olesnica_admin_music:
+    path:     /hudba
+    defaults: { _controller: OlesnicaAdminBundle:Music:index }
 
 olesnica_admin_events:
     path:     /akce

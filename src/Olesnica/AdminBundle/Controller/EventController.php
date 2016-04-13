@@ -51,6 +51,7 @@ class EventController extends Controller
             return $this->redirectToRoute('olesnica_admin_events');
           }
         }
+
         return $this->render('OlesnicaAdminBundle:Event:edit.html.twig', array('form' => $form->createView()));
     }
 
