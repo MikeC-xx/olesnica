@@ -46,12 +46,24 @@
   }
 }
 
+.offset-bottom-smaller() {
+  margin-bottom: @grid-gutter-half-width / 2;
+
+  @media (min-width: @screen-md-min) {
+    margin-bottom: @grid-gutter-half-width;
+  }
+}
+
 .offset-bottom {
   .offset-bottom();
 }
 
 .offset-bottom-small {
   .offset-bottom-small();
+}
+
+.offset-bottom-smaller {
+  .offset-bottom-smaller();
 }
 
 .padding-top() {

@@ -1,12 +1,12 @@
 {% for event in events %}
 <article>
-  <div class="pull-right">{{ event.startDate|date('j. n. Y')}}</div>
-  <div>
-    <h3>{{ event.title }}</h3>
+  <div class="text-right"><em>{{ event.startDate|date('j. n. Y')}}</em></div>
+  <div class="offset-bottom-smaller">
+    <h4>{{ event.title }}</h4>
     {{ event.shortDescription }}
   </div>
-  <div class="pull-right">
-    <a class="btn btn-success btn-xs" href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}">více</a>
+  <div class="clearfix">
+    <a class="btn btn-success btn-xs pull-right" href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}">více</a>
   </div>
 </article>
 {% endfor %}
