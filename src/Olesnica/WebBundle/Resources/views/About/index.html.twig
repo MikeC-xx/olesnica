@@ -3,8 +3,8 @@
 {% set subtitle = 'O souboru' %}
 
 {% block content %}
-<article>
-  <div class="row">
+<div class="row">
+  <article>
     <div class="col-md-6 col-sm-6">
       <h1>{{ data.aboutTitle }}</h1>
       {{ data.aboutText|raw }}
@@ -17,8 +17,8 @@
         </div>
       </div>
     </div>
-  </div>
-</article>
+  </article>
+</div>
 <hr>
 <article>
   <h1>{{ data.historyTitle }}</h1>
