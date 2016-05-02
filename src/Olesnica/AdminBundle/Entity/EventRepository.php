@@ -69,7 +69,7 @@ class EventRepository extends EntityRepository
           $qb->setMaxResults($limit);
         }
 
-        $qb->orderBy('e.startDate', 'DESC')
+        $qb->orderBy('e.startDate', 'ASC')
            ->addOrderBy('e.startTime', 'ASC')
         ;
 
