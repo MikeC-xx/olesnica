@@ -21,8 +21,8 @@
       {% set zoom = 15 %}
       {% set mapWidth = 500 %}
       {% set mapHeight = 300 %}
-      {% set mapUrl = 'http://maps.google.com/maps?q=' ~ event.latitude ~ ',' ~ event.longitude ~ '&hl=cs&ie=utf8&z=' ~ zoom %}
-      {% set imgUrl = 'http://maps.googleapis.com/maps/api/staticmap?center=' ~ event.latitude ~ ',' ~ event.longitude ~ '&zoom=' ~ zoom ~ '&size=' ~ mapWidth ~ 'x' ~ mapHeight ~ '&sensor=false&markers=' ~ event.latitude ~ ',' ~ event.longitude %}
+      {% set mapUrl = '//maps.google.com/maps?q=' ~ event.latitude ~ ',' ~ event.longitude ~ '&hl=cs&ie=utf8&z=' ~ zoom %}
+      {% set imgUrl = '//maps.googleapis.com/maps/api/staticmap?center=' ~ event.latitude ~ ',' ~ event.longitude ~ '&zoom=' ~ zoom ~ '&size=' ~ mapWidth ~ 'x' ~ mapHeight ~ '&sensor=false&markers=' ~ event.latitude ~ ',' ~ event.longitude %}
     </p>
     <a href="{{ mapUrl }}" class="offset-bottom-small" style="display: inline-block;" target="_blank" title="Zobrazit mapu (otevře se v novém okně)" data-toggle="tooltip">
       <img src="{{ imgUrl }}" alt="Mapa: {{ event.location }}" width="{{ mapWidth }}" height="{{ mapHeight }}" class="img-responsive" style="display: inline-block;">
