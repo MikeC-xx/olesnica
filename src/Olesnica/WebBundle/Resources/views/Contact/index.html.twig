@@ -1,5 +1,7 @@
 {% extends 'web_base.html.twig' %}
 
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 {% set subtitle = 'Kontakty' %}
 
 {% block content %}
@@ -21,14 +23,12 @@
 </p>
 <h2>Kontaktujte nás</h2>
 <div class="offset-bottom clearfix">
+  {{form_start(form) }}
+  {{form_row(form.email) }}
+  {{form_row(form.body) }}
   <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" placeholder="Váš email" id="email" class="form-control">
+    <input type="submit" class="btn btn-default pull-right" value="Odeslat">
   </div>
-  <div class="form-group">
-    <label for="message">Zpráva</label>
-    <textarea rows="4" id="message" placeholder="Vaše zpráva" class="form-control"></textarea>
-  </div>
-  <input type="submit" class="btn btn-default pull-right" value="Odeslat">
+  {{form_end(form) }}
 </div>
 {% endblock %}
