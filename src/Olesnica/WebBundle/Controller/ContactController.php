@@ -46,30 +46,37 @@ class ContactController extends Controller
             })
             ->getForm();
 
-        $form->handleRequest($request);
+        if ($request->getMethod() === 'POST') {
+            $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $data = $form->getData();
-            $message = \Swift_Message::newInstance()
-                ->setSubject('Dotaz z www.olesnica.cz')
-                ->setFrom($data['email'])
-                ->setTo('olesnica@olesnica.cz')
-                ->setBody(
-                    $this->renderView(
-                        'OlesnicaWebBundle:Email:contact.html.twig',
-                        ['body' => $data['body']]
-                    ),
-                    'text/html'
+            if ($form->isValid()) {
+                $data = $form->getData();
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Dotaz z www.olesnica.cz')
+                    ->setFrom($data['email'])
+                    ->setTo('olesnica@olesnica.cz')
+                    ->setBody(
+                        $this->renderView(
+                            'OlesnicaWebBundle:Email:contact.html.twig',
+                            ['body' => $data['body']]
+                        ),
+                        'text/html'
+                    );
+
+                $this->get('mailer')->send($message);
+
+                $this->addFlash(
+                    'success',
+                    'Váš dotaz byl úspěšně odeslán, brzy Vás budeme kontaktovat. Děkujeme.'
                 );
 
-            $this->get('mailer')->send($message);
-
-            $this->addFlash(
-                'success',
-                'Váš dotaz byl úspěšně odeslán, brzy Vás budeme kontaktovat. Děkujeme.'
-            );
-
-            return $this->redirectToRoute('olesnica_web_contact');
+                return $this->redirectToRoute('olesnica_web_contact');
+            } else {
+                $this->addFlash(
+                    'danger',
+                    'Váš dotaz nebyl odeslán. Zkontrolujte prosím kontaktní formulář.'
+                );
+            }
         }
 
         return $this->render('OlesnicaWebBundle:Contact:index.html.twig', ['form' => $form->createView()]);
