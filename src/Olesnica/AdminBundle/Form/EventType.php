@@ -27,7 +27,8 @@ class EventType extends AbstractType
               'required' => false
             ))
             ->add('startDate', 'date', array(
-              'label' => 'Datum'
+              'label' => 'Datum',
+              'years' => range(1960, date('Y') + 5)
             ))
             ->add('setStartTime', 'checkbox', array(
               'label' => 'Zadat čas',
