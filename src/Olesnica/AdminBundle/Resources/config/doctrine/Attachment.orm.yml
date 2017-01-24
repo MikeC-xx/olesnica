@@ -17,6 +17,9 @@ Olesnica\AdminBundle\Entity\Attachment:
             type: string
             length: 255
             nullable: true
+        main:
+            type: boolean
+            nullable: true
     manyToOne:
         event:
             targetEntity: Event

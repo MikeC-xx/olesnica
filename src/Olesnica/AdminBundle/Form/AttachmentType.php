@@ -36,6 +36,9 @@ class AttachmentType extends AbstractType
                 'readonly' => true
               )
             ))
+            ->add('main', null, array(
+              'label' => 'Hlavní'
+            ))
             ->add('delete', 'button', array(
               'label' => 'Smazat přílohu',
               'attr' => array(

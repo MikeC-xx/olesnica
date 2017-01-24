@@ -32,7 +32,11 @@
       {% for attachment in event.attachments %}
         <a href="{{ attachment.getWebPath }}" class="attachment-link">
           <div class="attachment">
-            <div class="attachment-icon attachment-{{ attachment.getIcon }}"></div>
+            {% if attachment.getIsImage %}
+              <img src="{{ attachment.getWebPath }}" alt="{{ event.title ~ " – " ~ attachment.title }}" class="img-responsive">
+            {% else %}
+              <div class="attachment-icon attachment-{{ attachment.getExtension }}"></div>
+            {% endif %}
             <div class="attachment-filename hidden-xs"><small>{{ attachment.path }}</small></div>
             <div class="attachment-title">{{ attachment.title }}</div>
           </div>

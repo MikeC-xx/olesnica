@@ -4,6 +4,15 @@
 
 {% block content %}
 <div class="col-md-8 col-sm-8">
+  {% if recentEvents|length > 0 %}
+  {% for attachment in recentEvents[0].attachments %}
+  {% if attachment.main and attachment.getIsImage %}
+  <a href="{{ path('olesnica_web_events_show_slug', { slug: recentEvents[0].slug }) }}">
+    <img src="{{ attachment.getWebPath }}" alt="{{ recentEvents[0].title ~ " – " ~ attachment.title }}" class="img-responsive offset-bottom">
+  </a>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
   <article>
     <h1>{{ data.welcomeTitle }}</h1>
     <p class="lead">

@@ -50,6 +50,7 @@ Olesnica\AdminBundle\Entity\Event:
             nullable: true
     oneToMany:
         attachments:
+            orderBy: { 'main': 'DESC' }
             targetEntity: Attachment
             nullable: false
             orphanRemoval: true

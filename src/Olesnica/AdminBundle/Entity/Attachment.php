@@ -96,7 +96,7 @@ class Attachment
         $this->setFile(null);
     }
 
-    public function getIcon()
+    public function getExtension()
     {
         if ($this->getPath()) {
             $ext = pathinfo($this->getPath(), PATHINFO_EXTENSION);
@@ -106,8 +106,8 @@ class Attachment
                 case 'doc':
                     $ext = 'docx';
                     break;
-                case 'jpg':
-                    $ext = 'jpeg';
+                case 'jpeg':
+                    $ext = 'jpg';
                     break;
                 case 'mp4':
                     $ext = 'mpeg4';
@@ -124,7 +124,7 @@ class Attachment
 
             switch ($ext) {
                 case 'docx':
-                case 'jpeg':
+                case 'jpg':
                 case 'mp3':
                 case 'mpeg4':
                 case 'pdf':
@@ -145,6 +145,11 @@ class Attachment
         return 'default';
     }
 
+    public function getIsImage()
+    {
+        return in_array($this->getExtension(), ['jpg', 'jpeg', 'png']);
+    }
+
     /**
      * @var integer
      */
@@ -159,6 +164,11 @@ class Attachment
      * @var string
      */
     private $path;
+
+    /**
+     * @var boolean
+     */
+    private $main;
 
     /**
      * @var \Olesnica\AdminBundle\Entity\Event
@@ -220,6 +230,29 @@ class Attachment
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * Set main
+     *
+     * @param boolean $main
+     * @return Attachment
+     */
+    public function setMain($main)
+    {
+        $this->main = $main;
+
+        return $this;
+    }
+
+    /**
+     * Get main
+     *
+     * @return boolean
+     */
+    public function getMain()
+    {
+        return $this->main;
     }
 
     /**
