@@ -1,10 +1,12 @@
 {% for event in events %}
 <article>
   <div class="text-right"><em>{{ event.startDate|date('j. n. Y')}}</em></div>
-  <div class="offset-bottom-smaller">
-    <h4>{{ event.title }}</h4>
-    {{ event.shortDescription }}
-  </div>
+  <a href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}" class="link-unstyled">
+    <div class="offset-bottom-smaller">
+      <h4>{{ event.title }}</h4>
+      {{ event.shortDescription }}
+    </div>
+  </a>
   <div class="clearfix">
     <a class="btn btn-success btn-xs pull-right" href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}">více</a>
   </div>
