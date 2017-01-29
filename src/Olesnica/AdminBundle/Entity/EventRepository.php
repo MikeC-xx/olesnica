@@ -22,7 +22,9 @@ class EventRepository extends EntityRepository
             ->andWhere(
               $qb->expr()->orX(
                 $qb->expr()->isNull('e.finishDate'),
-                $qb->expr()->lt('e.finishDate', ':now')
+                $qb->expr()->lt('e.finishDate', ':now'),
+                $qb->expr()->isNull('e.finishTime'),
+                $qb->expr()->lt('e.finishTime', ':now')
               )
             )
             ->setParameter('now', new \DateTime())
@@ -53,7 +55,9 @@ class EventRepository extends EntityRepository
             ->orWhere(
               $qb->expr()->andX(
                 $qb->expr()->isNotNull('e.finishDate'),
-                $qb->expr()->gte('e.finishDate', ':now')
+                $qb->expr()->gte('e.finishDate', ':now'),
+                $qb->expr()->isNotNull('e.finishTime'),
+                $qb->expr()->gte('e.finishTime', ':now')
               )
             )
             ->setParameter('now', new \DateTime())
