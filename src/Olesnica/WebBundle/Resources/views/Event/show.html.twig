@@ -1,5 +1,7 @@
 {% extends 'web_base.html.twig' %}
 
+{% set apiKey = 'AIzaSyCp0Tf8H0AN1QxTBQXiI9l615ST9-lBVR0' %}
+
 {% set subtitle = event.title %}
 
 {% block content %}
@@ -22,7 +24,7 @@
       {% set mapWidth = 500 %}
       {% set mapHeight = 300 %}
       {% set mapUrl = '//maps.google.com/maps?q=' ~ event.latitude ~ ',' ~ event.longitude ~ '&hl=cs&ie=utf8&z=' ~ zoom %}
-      {% set imgUrl = '//maps.googleapis.com/maps/api/staticmap?center=' ~ event.latitude ~ ',' ~ event.longitude ~ '&zoom=' ~ zoom ~ '&size=' ~ mapWidth ~ 'x' ~ mapHeight ~ '&sensor=false&markers=' ~ event.latitude ~ ',' ~ event.longitude %}
+      {% set imgUrl = '//maps.googleapis.com/maps/api/staticmap?center=' ~ event.latitude ~ ',' ~ event.longitude ~ '&zoom=' ~ zoom ~ '&size=' ~ mapWidth ~ 'x' ~ mapHeight ~ '&sensor=false&markers=' ~ event.latitude ~ ',' ~ event.longitude ~ '&key=' ~ apiKey %}
     </p>
     <a href="{{ mapUrl }}" class="offset-bottom-small" style="display: inline-block;" target="_blank" title="Zobrazit mapu (otevře se v novém okně)" data-toggle="tooltip">
       <img src="{{ imgUrl }}" alt="Mapa: {{ event.location }}" width="{{ mapWidth }}" height="{{ mapHeight }}" class="img-responsive" style="display: inline-block;">
