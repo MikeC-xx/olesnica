@@ -109,6 +109,13 @@ class EventType extends AbstractType
                 'autocomplete' => 'off'
               )
             ))
+            ->add('thumbnailUrl', null, array(
+              'label' => 'Google Photos Thumbnail URL',
+              'required' => false,
+              'attr' => array(
+                'autocomplete' => 'off'
+              )
+            ))
             ->add('attachments', 'collection', array(
               'label' => 'Přílohy',
               'type' => new AttachmentType(),
