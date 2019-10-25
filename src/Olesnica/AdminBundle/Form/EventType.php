@@ -54,6 +54,7 @@ class EventType extends AbstractType
             ))
             ->add('finishDate', 'date', array(
               'label' => 'Datum',
+              'years' => range(1960, date('Y') + 5),
               'row_attr' => array(
                 'id' => 'finish-date'
               )
