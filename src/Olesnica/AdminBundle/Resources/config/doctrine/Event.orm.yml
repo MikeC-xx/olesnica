@@ -48,6 +48,10 @@ Olesnica\AdminBundle\Entity\Event:
             type: string
             length: 255
             nullable: true
+        thumbnailUrl:
+            type: string
+            length: 255
+            nullable: true
     oneToMany:
         attachments:
             orderBy: { 'main': 'DESC' }

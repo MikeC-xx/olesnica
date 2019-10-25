@@ -1,11 +1,12 @@
 {% for event in events %}
-<article>
-  <a href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}" class="link-unstyled">
-    <h2>{{ event.title }}<br><small class="">{{ event.startDate|date('j. n. Y')}}</small></h2>
-    <p class="lead">
-      {{ event.shortDescription }}
-    </p>
-  </a>
-  <a class="btn btn-success pull-right" href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}">více</a>
-</article>
+<a href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}" class="link-unstyled">
+    <article>
+        <h2 class="h1">{{ event.title }}</h2>
+        <p class="lead"><strong>{{ event.startDate|date('j. n. Y')}}</strong></p>
+        <p class="lead">
+          {{ event.shortDescription }}
+        </p>
+        <a class="btn btn-success pull-right" href="{{ path('olesnica_web_events_show_slug', {'slug': event.slug }) }}">více</a>
+    </article>
+</a>
 {% endfor %}

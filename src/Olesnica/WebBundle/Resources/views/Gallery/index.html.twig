@@ -4,10 +4,22 @@
 
 {% block content %}
 <h1 class="offset-bottom">Galerie</h1>
-{% for event in galleries %}
-  <article class="text-center col-sm-6 col-md-4">
-    <h2>{{ event.title }}<br><small>{{event.startDate|date('j. n. Y') }}</h2>
-    <a href="{{ event.galleryUrl }}" class="btn btn-success" target="_blank">otevřít galerii</a>
-  </article>
-{% endfor %}
+<div class="row">
+    {% for event in galleries %}
+    <div class="col col-sm-4">
+        <a href="{{ event.galleryUrl }}" class="thumbnail" target="_blank">
+            <div class="hover-overlay-container">
+                <img class="img-responsive" src="{{ event.galleryUrl }}" alt="{{ event.title }}">
+                <div class="hover-overlay-content">
+                    <span class="">Otevřít album <span class="glyphicon glyphicon-camera" aria-hidden="true"></span></span>
+                </div>
+            </div>
+            <div class="caption">
+                <h3>{{ event.title }}</h3>
+                <strong>{{ event.startDate|date('j. n. Y') }}</strong>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

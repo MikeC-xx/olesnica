@@ -169,6 +169,11 @@ class Event
     private $galleryUrl;
 
     /**
+     * @var string
+     */
+    private $thumbnailUrl;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $attachments;
@@ -177,7 +182,7 @@ class Event
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -200,7 +205,7 @@ class Event
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -223,7 +228,7 @@ class Event
     /**
      * Get performance
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPerformance()
     {
@@ -246,7 +251,7 @@ class Event
     /**
      * Get startDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getStartDate()
     {
@@ -269,7 +274,7 @@ class Event
     /**
      * Get startTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getStartTime()
     {
@@ -292,7 +297,7 @@ class Event
     /**
      * Get finishDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFinishDate()
     {
@@ -315,7 +320,7 @@ class Event
     /**
      * Get finishTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFinishTime()
     {
@@ -338,7 +343,7 @@ class Event
     /**
      * Get location
      *
-     * @return string 
+     * @return string
      */
     public function getLocation()
     {
@@ -361,7 +366,7 @@ class Event
     /**
      * Get latitude
      *
-     * @return float 
+     * @return float
      */
     public function getLatitude()
     {
@@ -384,7 +389,7 @@ class Event
     /**
      * Get longitude
      *
-     * @return float 
+     * @return float
      */
     public function getLongitude()
     {
@@ -407,7 +412,7 @@ class Event
     /**
      * Get shortDescription
      *
-     * @return string 
+     * @return string
      */
     public function getShortDescription()
     {
@@ -430,7 +435,7 @@ class Event
     /**
      * Get longDescription
      *
-     * @return string 
+     * @return string
      */
     public function getLongDescription()
     {
@@ -453,7 +458,7 @@ class Event
     /**
      * Get galleryUrl
      *
-     * @return string 
+     * @return string
      */
     public function getGalleryUrl()
     {
@@ -461,9 +466,32 @@ class Event
     }
 
     /**
+     * Set thumbnailUrl
+     *
+     * @param string $thumbnailUrl
+     * @return Event
+     */
+    public function setThumbnailUrl($thumbnailUrl)
+    {
+        $this->thumbnailUrl = $thumbnailUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get thumbnailUrl
+     *
+     * @return string
+     */
+    public function getThumbnailUrl()
+    {
+        return $this->thumbnailUrl;
+    }
+
+    /**
      * Get attachments
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAttachments()
     {
