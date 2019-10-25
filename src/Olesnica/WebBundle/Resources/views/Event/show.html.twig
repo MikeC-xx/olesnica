@@ -6,7 +6,6 @@
 
 {% block content %}
 <div class="col-sm-12">
-  <article>
     <h1>{{ event.title }}</h1>
     <p class="lead"><strong>{{ event.getDuration }}</strong></p>
     <p class="lead offset-bottom-small">
@@ -47,10 +46,20 @@
     {% endif %}
 
     {% if event.galleryUrl is not null %}
-      <h2 class="h1 offset-bottom">Galerie</h2>
-      <a href="{{ event.galleryUrl }}" class="btn btn-success" target="_blank">otevřít galerii</a>
+      <h2 class="h1 offset-bottom-smaller">Galerie</h2>
+      <div class="row offset-bottom">
+        <div class="col col-sm-6">
+            <a href="{{ event.galleryUrl }}" class="thumbnail" target="_blank">
+                <div class="hover-overlay-container">
+                    <img class="img-responsive" src="{{ event.thumbnailUrl }}" alt="{{ event.title }}">
+                    <div class="hover-overlay-content">
+                        <span class="">Otevřít album <span class="glyphicon glyphicon-camera" aria-hidden="true"></span></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+      </div>
     {% endif %}
-  </article>
 </div>
 {% endblock %}
 
