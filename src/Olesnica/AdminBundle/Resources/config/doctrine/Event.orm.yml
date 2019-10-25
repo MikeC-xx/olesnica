@@ -46,11 +46,11 @@ Olesnica\AdminBundle\Entity\Event:
             nullable: true
         galleryUrl:
             type: string
-            length: 1000
+            length: 2048
             nullable: true
         thumbnailUrl:
             type: string
-            length: 1000
+            length: 2048
             nullable: true
     oneToMany:
         attachments:
