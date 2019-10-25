@@ -5,7 +5,7 @@
 {% block content %}
 <h1 class="offset-bottom">Galerie</h1>
 <div class="row">
-  <div style="display:flex;flex-wrap:wrap">
+  <div class="d-flex flex-wrap">
     {% for event in galleries %}
     <div class="col col-sm-4">
         <a href="{{ event.galleryUrl }}" class="thumbnail" target="_blank">
